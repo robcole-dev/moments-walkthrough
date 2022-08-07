@@ -1,10 +1,12 @@
 import logo from './logo.svg';
-import './App.css';
+import Button from 'react-bootstrap/Button'
+import styles from './App.module.css';
+import Navbar from './components/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, World!</h1>
+    <div className={styles.App}>
+      <Navbar />
     </div>
   );
 }
