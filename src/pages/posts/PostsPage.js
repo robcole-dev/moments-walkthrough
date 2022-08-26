@@ -5,8 +5,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import Post from "./post";
-import Asset from "../../components/Assets";
+import Post from "./Post";
+import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
@@ -37,10 +37,11 @@ function PostsPage({ message, filter = "" }) {
 
     setHasLoaded(false);
     const timer = setTimeout(() => {
-        fetchPosts();
+      fetchPosts();
     }, 1000);
+
     return () => {
-        clearTimeout(timer)
+      clearTimeout(timer);
     };
   }, [filter, query, pathname]);
 
@@ -65,18 +66,15 @@ function PostsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {posts.results.length ? (
-              <InfiniteScroll 
-                children={
-                  posts.results.map((post) => (
-                    <Post key={post.id} {...post} setPosts={setPosts} />
-                  ))
-                }
+              <InfiniteScroll
+                children={posts.results.map((post) => (
+                  <Post key={post.id} {...post} setPosts={setPosts} />
+                ))}
                 dataLength={posts.results.length}
                 loader={<Asset spinner />}
                 hasMore={!!posts.next}
                 next={() => fetchMoreData(posts, setPosts)}
               />
-
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
