@@ -25,18 +25,18 @@ const NavBar = () => {
 
     const addPostIcon = (
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/posts/create">
-            <i class="far fa-plus-square"></i>Add Post
+            <i className="far fa-plus-square"></i>Add Post
         </NavLink>
     );
     const LoggedInIcons = <>
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/feed">
-            <i class="fas fa-stream"></i>Feed
+            <i className="fas fa-stream"></i>Feed
         </NavLink>
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/liked">
-            <i class="fas fa-heart"></i>Liked
+            <i className="fas fa-heart"></i>Liked
         </NavLink>
         <NavLink className={styles.NavLink} to="/" onClick={(handleSignOut)}>
-            <i class="fas fa-sign-out-alt"></i>Sign Out
+            <i className="fas fa-sign-out-alt"></i>Sign Out
         </NavLink>
         <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.profile_id}`} >
             <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
@@ -46,10 +46,10 @@ const NavBar = () => {
     const loggedOutIcons = (
     <> 
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signin">
-            <i class="fas fa-sign-in-alt"></i>Sign In
+            <i className="fas fa-sign-in-alt"></i>Sign In
         </NavLink>
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/signup">
-            <i class="fas fa-user-plus"></i>Sign Up
+            <i className="fas fa-user-plus"></i>Sign Up
         </NavLink>
     </>)
 
@@ -66,7 +66,7 @@ const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">
                         <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">
-                            <i class="fas fa-home"></i>Home
+                            <i className="fas fa-home"></i>Home
                         </NavLink>
                         {currentUser ? LoggedInIcons : loggedOutIcons}
                     </Nav>
